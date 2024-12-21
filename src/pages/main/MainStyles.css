@@ -1,0 +1,116 @@
+:root {
+    --primary-color: #7a7acc;
+    --secondary-color: #b3d17b;
+    --accent-color: #d3e2ff;
+}
+
+@keyframes pulse {
+   0% {
+      background-position: 0% 0%;
+   }
+   50% {
+      background-position: 25% 0%;
+   }
+   100% {
+      background-position: 0% 0%;
+   }
+}
+
+#container {
+   height: 200vh;
+   background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color));
+   background-size: 150% 100%;
+   animation: pulse 5s infinite alternate;
+   color: var(--accent-color);
+}
+
+#nameContainer {
+   display: flex;
+   justify-content: center;
+
+}
+
+#nameContainer .name {
+   font-size: 11dvw;
+   font-weight: 350;
+   display: flex;
+   line-height: 2;
+   gap: 0.08em;
+   white-space: nowrap;
+}
+
+#nameContainer .name .letter {
+   display: inline-block;
+   transition: transform 0.1s ease-out; 
+}
+
+#positionTitleContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#positionTitleContainer span {
+    padding-right: 10dvw;
+    padding-bottom: 25dvh;
+    font-size: 3.5rem;
+    font-weight: 350;
+}
+
+#experienceContainer {
+    margin-left: auto;
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#experienceContainer h2 {
+   letter-spacing: 2px;    
+    margin-top: 50px;
+}
+
+#experienceContainer ul {
+    line-height: 2;
+    list-style-type: none;
+    padding-left: 20px; 
+}
+#experienceContainer ul li {
+    font-size: 1.5rem;
+    font-weight: 250;
+    width: fit-content;
+    position: relative;
+    cursor: pointer;
+}
+
+#experienceContainer ul li::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--accent-color); 
+    transition: width 0.3s ease-in-out;
+}
+
+#experienceContainer ul li:hover::after {
+    width: 100%;
+}
+
+#experienceContainer ul li::before {
+    content: '⮞'; 
+    position: absolute;
+    left: -30px;
+    font-size: 1.5rem;
+    opacity: 0; 
+    transition: opacity 0.15s ease, transform 0.15s ease; 
+    transition-delay: 0.15s;
+}
+
+#experienceContainer ul li:hover::before {
+    opacity: 1;
+    transform: translateX(5px);
+}
